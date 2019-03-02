@@ -1,4 +1,29 @@
 #canvas {
   border: 1px solid red;
- background-image: url("../img/bg-1")
+  display: block;
+  margin: 0 auto;
+ /* background-image: url("../img/bg-1") */
+}
+
+.home{
+  width: 1000px;
+  height: 600px;
+  background-image: url("../img/home.jpg");
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.start {
+  width: 240px;
+  height: 80px;
+  border-radius: 10px;
+  margin-left: 650px;
+  margin-top: 80px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.9rem;
+  color: orange;
+  font-weight: bold;
+  background-color: #045FB4;
+  border: 2px solid orange;
+  transform: rotate(0deg)
 }

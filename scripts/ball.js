@@ -11,10 +11,12 @@
 // context.lineWidth = 5;
 // context.strokeStyle = '#003300';
 // context.stroke();
-
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
+
+
 var radius = 30
+var gravity =  0.14;
 
 var ball = {
   x: 600,
@@ -35,18 +37,25 @@ var ball = {
 ball.draw();
 
 
-function update() {
-  ctx.clearRect(0,0, canvas.width, canvas.height);
-  ball.draw();
-  ball.x += ball.vx;
-  ball.y += ball.vy;
-  if (ball.y + ball.vy > canvas.height - radius|| ball.y + ball.vy < radius) {
-  ball.vy *= -1;
-}
-if (ball.x + ball.vx > canvas.width - radius || ball.x + ball.vx < radius) {
-  ball.vx *= -1;
-}
-}
+// function update() {
+//   ctx.clearRect(0,0, canvas.width, canvas.height);
+//   drawBackground();
+//   ball.draw();
+  
+//   ball.vy += gravity;
+//   ball.x += ball.vx;
+//   ball.y += ball.vy;
+//   if (ball.y + ball.vy > canvas.height - radius|| ball.y + ball.vy < radius) {
+//   ball.vy *= -1;
+// }
+// if (ball.x + ball.vx > canvas.width - radius || ball.x + ball.vx < radius) {
+//   ball.vx *= -1;
+// }
+// }
 
-setInterval(update, 20)
+
+
+// setInterval(update, 20);
+
+
 
