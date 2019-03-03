@@ -1,46 +1,45 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
-player = new Player ();
+//player = new Player ();
 
-function Player(x, y) {
-  this.x = x;
-  this.y = y;
+
+
+function Player() {
+  this.x = 700;
+  this.y = 600;
   this.speedX = 0;
   this.speedY = 0;
-  ctx.fillStyle = '#DF0101'
-  ctx.fillRect(this.x, this.y, 50, -200);
 
-  window.onkeydown = function(event) {
-    var keyPr = event.keyCode; //Key code of key pressed
-  
-    if(keyPr === 39 && x<=1000){ 
-        this.x = x+20;
-        console.log("right") //right arrow add 20 from current
-    }
-    else if(keyPr === 37 && x>0){
-        this.x = x-20;
-        console.log("left") //left arrow subtract 20 from current
-    }
-    else if(keyPr === 38 && y>0) {
-        this.y = y-20; 
-        console.log("up")//top arrow subtract 20 from current
-    }
-    else if(keyPr === 40 && y<=600){
-        this.y = y+20;
-        console.log("bottom") //bottom arrow add 20 from current
-    }
-    
-    /*clearing anything drawn on canvas
-     *comment this below do draw path */
-    this.clear(0,0, 500, 500);
-  
-    //Drawing rectangle at new position
-    player(this.x,this.y);
-  };
 }
     
+Player.prototype.move = function(){
+    document.onkeydown = function(e) {
+        switch(e.keyCode){
+          case 39:
+            this.x = this.x+20;   
+            console.log(this.x + " right")
+            break
+          case 37:
+            this.x = this.x-20;
+            console.log(this.x + " left")
+            break
+        //   case 38:
+        //     this.isMovingUp = true;
+        //     break
+        //   case 40:
+        //     this.isMovingDown = true;
+        //     break
+          }
+      }.bind(this)
+    }
 
+Player.prototype.draw = function(){
+    ctx.beginPath();
+    ctx.fillStyle = '#DF0101'
+    ctx.fillRect(this.x, this.y, 50, -200);
+    ctx.closePath();
+}
 
 
 //   this.newPos = function() {
