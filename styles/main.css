@@ -11,6 +11,7 @@
   background-image: url("../img/home.jpg");
   background-size: cover;
   margin: 0 auto;
+  display: none
 }
 
 .start {
