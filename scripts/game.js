@@ -1,12 +1,11 @@
-
-
 function Game(canvadId) {
   this.canvas = document.getElementById("canvas");
   this.ctx = this.canvas.getContext("2d");
   canvas.width = 1000;
   canvas.height= 600;
-  this.fps = 60;
+  this.fps = 20;
   player = new Player ();
+  player2 = new Player2 ();
   ball = new Ball ()
   
   
@@ -18,12 +17,17 @@ function update() {
   ctx.clearRect(0,0, canvas.width, canvas.height);
   drawBackground();
   drawBasket();
+  drawBasket2();
   ball.move();
   ball.collision();
   ball.draw();
   player.move();
   player.jump ();
   player.draw();
+  player2.draw();
+  score(ball);
+  document.getElementById('score').innerHTML =
+  Score + " points"
   // ball.vy += gravity;
   // ball.x += ball.vx;
   // ball.y += ball.vy;
@@ -35,3 +39,5 @@ function update() {
   // }
 
 }
+
+

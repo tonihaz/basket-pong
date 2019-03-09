@@ -1,3 +1,9 @@
+body{
+  background-image: url("../img/home.jpg");
+  background-size: cover;
+
+
+}
 #canvas {
   border: 1px solid red;
   display: block;
@@ -8,10 +14,8 @@
 .home{
   width: 1000px;
   height: 600px;
-  background-image: url("../img/home.jpg");
-  background-size: cover;
   margin: 0 auto;
-  display: none
+
 }
 
 .start {
@@ -27,4 +31,42 @@
   background-color: #045FB4;
   border: 2px solid orange;
   transform: rotate(0deg)
+}
+
+.hide1{
+  display:none;
+}
+
+
+
+.mark{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 210px;
+  margin: 0 auto;
+  border: 1px solid red;
+  margin-top: 10px;
+
+  
+}
+#score {
+  width: 100px;
+  height: 100px;
+  background-color: midnightblue;
+  border: 3px solid RED;
+  color: white;
+  font-size: 2rem;
+  text-align: center
+
+}
+
+#timer{
+  width: 100px;
+  height: 100px;
+  background-color: midnightblue;
+  border: 3px solid RED;
+  color: white;
+  font-size: 2rem;
+  display: block
 }

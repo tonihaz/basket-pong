@@ -15,6 +15,16 @@ function Player(canvas) {
 
 };
 
+function Player2(canvas) {
+  this.x = 200;
+  this.y = 600;
+  this.vx = 0;
+  this.vy = 1;
+  this.width = 50;
+  this.height = -160;
+
+};
+
 // function jump () {
 //   if (this.y >= 600) {
 //     this.vy = 1;
@@ -31,13 +41,11 @@ Player.prototype.move = function(){
           case 39:
             if(this.x<1000-50){
               this.x = this.x+20;}   
-            console.log(this.x + " right")
             break
           case 37:
             if (this.x>0){
               this.x = this.x-20;
             }
-            console.log(this.x + " left")
             break
 
           case 38:
@@ -48,7 +56,6 @@ Player.prototype.move = function(){
           //   this.vy += playerGravity;
           //   this.y -= this.vy;
            }
-          console.log(this.y + " jump")
             break
         //     this.isMovingUp = true;
         //     break
@@ -74,16 +81,37 @@ Player.prototype.jump = function() {
 }
 
 Player.prototype.draw = function(){
-    ctx.beginPath();
-    ctx.fillStyle = '#DF0101'
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.closePath();
-    var face = new Image();
-    face.src = './img/michael-jordan-face-png-2.png';
-    ctx.drawImage(face, this.x-35, this.y-230, 120, 80)
+    // ctx.beginPath();
+    // ctx.fillStyle = '#DF0101'
+    // ctx.fillRect(this.x, this.y, this.width, this.height);
+    // ctx.closePath();
+    // var face = new Image();
+    // face.src = './img/michael-jordan-face-png-2.png';
+    // ctx.drawImage(face, this.x-35, this.y-230, 120, 80);
+    var player1 = new Image();
+    player1.src = './img/player1.png';
+    ctx.drawImage(player1, this.x-55, this.y, 180, -230);
     // ctx.beginPath();
     // ctx.arc((this.x+25), (this.y-190), 30, 0, Math.PI * 2, true);
     // ctx.closePath();
     // ctx.fillStyle = this.color;
     // ctx.fill();
+}
+
+Player2.prototype.draw = function(){
+  // ctx.beginPath();
+  // ctx.fillStyle = '#DF0101'
+  // ctx.fillRect(this.x, this.y, this.width, this.height);
+  // ctx.closePath();
+  // var face = new Image();
+  // face.src = './img/michael-jordan-face-png-2.png';
+  // ctx.drawImage(face, this.x-35, this.y-230, 120, 80);
+  var player2 = new Image();
+  player2.src = './img/player2.png';
+  ctx.drawImage(player2, this.x-55, this.y, 180, -230);
+  // ctx.beginPath();
+  // ctx.arc((this.x+25), (this.y-190), 30, 0, Math.PI * 2, true);
+  // ctx.closePath();
+  // ctx.fillStyle = this.color;
+  // ctx.fill();
 }

@@ -8,16 +8,27 @@
   <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
  </head>
 <body>
-  <div class="home">
-      <button class="start" type="button">One player</button>
+  <div class="wrapper">
+    <div class="mark">
+      <div> 
+        <span id="timer">
+        </span>
+      </div>
+      <div id="score">
+      </div>
+    </div>
+  </div>
+  <div class="home" id="startScreen">
+      <button id="start1p" class="start" type="button">One player</button>
       <button class="start" type="button">Two players</button>
   </div>
-  <canvas id="canvas"></canvas>
-  <script src="scripts/collision.js"></script>
+  <canvas id="canvas" class="hide1"></canvas>
+  
   <script src="scripts/ball.js"></script>
   <script src="scripts/basket.js"></script>
   <script src="scripts/player.js"></script>
   <script src="scripts/background.js"></script>
+  <script src="scripts/timer.js"></script>
   <script src="scripts/game.js"></script>
   <script src="scripts/main.js"></script>
 </body>
