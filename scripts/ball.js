@@ -20,6 +20,7 @@ var gravity =  0.1;
 var colorBall = '#ff6700';
 
 var Score = 0;
+var Score2 = 0
 
 // var ball = {
 //   x: 600,
@@ -102,16 +103,28 @@ Ball.prototype.collision = function (){
       //this.vy = 2
       this.vx = 1.2
     } 
-    
+    if (
+      this.x + this.radius >= canvas.width - 10  &&
+      this.x + this.radius <= canvas.width  &&
+      //this.x-this.radius >= player.x && 
+      this.y  <= 260 &&
+      this.y  >= 130
+      ){
+      //this.vy = 2
+      this.vx = 1.2
+    } 
 }
 
 
 Ball.prototype.draw = function (){
-  ctx.beginPath();
-  ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-  ctx.closePath();
-  ctx.fillStyle = colorBall;
-  ctx.fill();
+  // ctx.beginPath();
+  // ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+  // ctx.closePath();
+  // ctx.fillStyle = colorBall;
+  // ctx.fill();
+  var ball = new Image();
+  ball.src = './img/ball2.png';
+  ctx.drawImage(ball, this.x-radius, this.y-radius, 60, 60);
 }
 
 
@@ -141,7 +154,9 @@ Ball.prototype.draw = function (){
 
 
 function score (obj){
+if (obj!= undefined)
   if (
+    obj.vy >= 0 &&
     //this.y + this.radius <= 255 && 
     //this.y + this.radius >= 265 && 
     obj.y <= 260 &&
@@ -157,5 +172,26 @@ function score (obj){
       ctx.font = "16px Arial";
       ctx.fillStyle = "#0095DD";
       ctx.fillText("Score: "+Score, 8, 20);
+  }
+}
+
+function score2 (obj){
+  if (
+    obj.vy >= 0 &&
+    //this.y + this.radius <= 255 && 
+    //this.y + this.radius >= 265 && 
+    obj.y <= 260 &&
+    obj.y >= 240 &&
+    obj.x + obj.radius <= canvas.width &&
+    obj.x - obj.radius >= canvas.width - 125
+    ){
+      Score2++;
+      obj.x = 600;
+      obj.y = 200;
+      obj.vx = 9;
+      obj.vy = 6;
+      ctx.font = "16px Arial";
+      ctx.fillStyle = "#0095DD";
+      ctx.fillText("Score: "+Score2, 8, 20);
   }
 }

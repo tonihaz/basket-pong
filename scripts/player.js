@@ -25,21 +25,12 @@ function Player2(canvas) {
 
 };
 
-// function jump () {
-//   if (this.y >= 600) {
-//     this.vy = 1;
-//     this.y = 600;
-//   } else {
-//     this.vy += playerGravity;
-//     this.y += this.vy;
-//   }
-// }
     
 Player.prototype.move = function(){
     document.onkeydown = function(e) {
         switch(e.keyCode){
           case 39:
-            if(this.x<1000-50){
+            if(this.x<1000-80){
               this.x = this.x+20;}   
             break
           case 37:
@@ -47,26 +38,54 @@ Player.prototype.move = function(){
               this.x = this.x-20;
             }
             break
-
           case 38:
           if (this.y == 600) {
             this.y -= 5;
             this.vy -= 13;
-          // } else {
-          //   this.vy += playerGravity;
-          //   this.y -= this.vy;
            }
             break
-        //     this.isMovingUp = true;
-        //     break
-        //   case 40:
-        //     this.isMovingDown = true;
-        //     break
           }
+        
       }.bind(this)
-    }
+}
+
+Player2.prototype.move = function(){
+  document.onkeydown = function(e) {
+      switch(e.keyCode){
+        case 68:
+          if(this.x<1000-50){
+            this.x = this.x+20;}   
+          break
+        case 65:
+          if (this.x>0){
+            this.x = this.x-20;
+          }
+          break
+        case 87:
+        if (this.y == 600) {
+          this.y -= 5;
+          this.vy -= 13;
+         }
+          break
+        }
+    }.bind(this)
+}
 
 Player.prototype.jump = function() {
+  // Aumenta la velocidad en el eje y.
+  var gravity = 0.4;
+
+  // solo salta cuando el personaje está en el suelo
+  if (this.y >= 600) {
+    this.vy = 1;
+    this.y = 600;
+  } else {
+    this.vy += gravity;
+    this.y += this.vy;
+  }    
+}
+
+Player2.prototype.jump = function() {
   // Aumenta la velocidad en el eje y.
   var gravity = 0.4;
 

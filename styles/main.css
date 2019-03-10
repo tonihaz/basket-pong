@@ -1,11 +1,8 @@
 body{
   background-image: url("../img/home.jpg");
   background-size: cover;
-
-
 }
 #canvas {
-  border: 1px solid red;
   display: block;
   margin: 0 auto;
  /* background-image: url("../img/bg-1") */
@@ -45,7 +42,6 @@ body{
   justify-content: space-between;
   width: 210px;
   margin: 0 auto;
-  border: 1px solid red;
   margin-top: 10px;
 
   
@@ -53,15 +49,25 @@ body{
 #score {
   width: 100px;
   height: 100px;
-  background-color: midnightblue;
-  border: 3px solid RED;
+/*   background-color: midnightblue;
+  border: 3px solid RED; */
   color: white;
   font-size: 2rem;
+  text-align: center
+}
+
+#score2 {
+  width: 100px;
+  height: 100px;
+/*   background-color: midnightblue;
+  border: 3px solid RED; */
+  color: white;
+  font-size: 2rem; 
   text-align: center
 
 }
 
-#timer{
+/* #timer{
   width: 100px;
   height: 100px;
   background-color: midnightblue;
@@ -69,4 +75,21 @@ body{
   color: white;
   font-size: 2rem;
   display: block
+} */
+
+.key {
+  width: 60px;
+  height: 60px;
+  background-color: antiquewhite;
+  border-radius:10px;
+  border: 3px solid black;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  text-align: center;
+  color: black;
+}
+
+.instructions{
+  font-size: 1.2rem;
+  color:antiquewhite;
 }
