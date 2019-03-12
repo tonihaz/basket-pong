@@ -1,5 +1,5 @@
 // document.getElementById('timer').innerHTML =
-//   00 + ":" + 10;
+//   10 + ":" + 10;
 // startTimer();
 
 // function startTimer() {
@@ -20,5 +20,7 @@
 //   if (sec <= 0) {sec = "00"};
 //   return sec;
 // }
+
+
 
 

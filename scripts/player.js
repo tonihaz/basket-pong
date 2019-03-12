@@ -26,8 +26,7 @@ function Player2(canvas) {
 };
 
     
-Player.prototype.move = function(){
-    document.onkeydown = function(e) {
+Player.prototype.move = function(e){
         switch(e.keyCode){
           case 39:
             if(this.x<1000-80){
@@ -45,12 +44,9 @@ Player.prototype.move = function(){
            }
             break
           }
-        
-      }.bind(this)
 }
 
-Player2.prototype.move = function(){
-  document.onkeydown = function(e) {
+Player2.prototype.move = function(e){
       switch(e.keyCode){
         case 68:
           if(this.x<1000-50){
@@ -68,7 +64,6 @@ Player2.prototype.move = function(){
          }
           break
         }
-    }.bind(this)
 }
 
 Player.prototype.jump = function() {

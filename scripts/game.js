@@ -7,20 +7,12 @@ function Game(canvadId) {
   player = new Player ();
   player2 = new Player2 ();
   ball = new Ball ()
-  
-  // document.onkeydown = function(event) {
-  //   switch (event.keyCode){
-  //    case 87: game.player.jump(); break;
-  //    case 65: game.player.moveLeft(); break;
-  //    case 68: game.player.moveRight(); break;
-  //    //case 86: game.player.shoot(); break;
-  //    case 104: game.player2.jump(); break;
-  //    case 100: game.player2.moveLeft(); break;
-  //    case 102: game.player2.moveRight(); break;
-  //    //case 80: game.player2.shoot(); break;
-  //   }
-  // }
-  
+
+  var audio = new Audio('./audio/NBAsound.mp3');
+  audio.play();
+
+
+
   setInterval(update, 20);
   
   //this.reset();
@@ -33,8 +25,10 @@ function update() {
   ball.move();
   ball.collision();
   ball.draw();
-  player2.move();
-  player.move();
+  document.onkeydown = function(e) {
+    player2.move(e);
+    player.move(e);
+  }.bind(this)
   player.jump ();
   player2.jump ();
   player.draw();
@@ -44,19 +38,16 @@ function update() {
   document.getElementById('score').innerHTML =  Score + " points";
   document.getElementById('score2').innerHTML =  Score2 + " points";
   if(Score == 7){
-    alert("Player 1 win")
+    if(alert("Player 2 win"))
+    {}
+      else    
+      window.location.reload(); ;   
   }
-  if(Score2 == 7){
-    alert("Player 2 win")
+  if(Score2 == 7){    
+    if(alert("Player 2 win")){}
+      else    
+      window.location.reload(); 
   }
-  // ball.vy += gravity;
-  // ball.x += ball.vx;
-  // ball.y += ball.vy;
-  // if (ball.y + ball.vy > canvas.height - radius|| ball.y + ball.vy < radius) {
-  //   ball.vy *= -1;
-  // }
-  // if (ball.x + ball.vx > canvas.width - radius || ball.x + ball.vx < radius) {
-  //   ball.vx *= -1;
-  // }
 
+  
 }
