@@ -9,14 +9,6 @@ var colorBall = '#ff6700';
 var Score = 0;
 var Score2 = 0
 
-function hideImage(){
-  //  5000 = 5 seconds
-  setTimeout( 5000, doHide ) ;
-}
-
-function doHide(){
-    document.getElementById( "imgToHide" ).style.display = "none" ;
-}
 
 function Ball (canvas){
   initialPosX = 600;
@@ -60,12 +52,7 @@ Ball.prototype.collision = function (){
       this.vx *= -1
     } 
 
-    // if (      
-    //   this.y + this.radius >= player.y + player.height - 10 &&
-    //   this.y + this.radius <= player.y + player.height
-    // ) {
 
-    // }
     if (this.x + this.radius >= player2.x && 
       this.y + this.radius >= player2.y + player2.height && 
       this.x - this.radius <= player2.x + player2.width){
@@ -121,8 +108,8 @@ function score (obj){
 if (obj!= undefined)
   if (
     obj.vy >= 0 &&
-    obj.y <= 260 &&
-    obj.y >= 240 &&
+    obj.y <= 267 &&
+    obj.y >= 230 &&
     obj.x + obj.radius <= 125 &&
     obj.x - obj.radius >= 0
     ){
@@ -130,10 +117,10 @@ if (obj!= undefined)
       if (Score===0){
 
       }
-      if (Score === 2) {
+      if (Score === 6) {
         var audio = new Audio('./audio/defense.mp3');
         audio.play();
-      } else if (Score === 3) {
+      } else if (Score === 2) {
         var audio = new Audio('./audio/triple.mp3');
         audio.play();
       } else
@@ -143,24 +130,19 @@ if (obj!= undefined)
       obj.y = 200;
       obj.vx = 9;
       obj.vy = 6;
-      ctx.font = "16px Arial";
-      ctx.fillStyle = "#0095DD";
-      ctx.fillText("Score: "+Score, 8, 20);
   }
 }
 
 function score2 (obj){
   if (
     obj.vy >= 0 &&
-    obj.y <= 260 &&
-    obj.y >= 240 &&
+    obj.y <= 267 &&
+    obj.y >= 220 &&
     obj.x + obj.radius <= canvas.width &&
     obj.x - obj.radius >= canvas.width - 125
     ){
       Score2++;
-      if (Score2 ===1) {
-        hideImage()
-      } else if (Score2 === 2) {
+      if (Score2 === 2) {
         var audio = new Audio('./audio/chof.mp3');
         audio.play();
       } else if (Score2 === 4) {
@@ -173,9 +155,6 @@ function score2 (obj){
       obj.y = 200;
       obj.vx = 9;
       obj.vy = 6;
-      ctx.font = "16px Arial";
-      ctx.fillStyle = "#0095DD";
-      ctx.fillText("Score: "+Score2, 8, 20);
   }
 }
 

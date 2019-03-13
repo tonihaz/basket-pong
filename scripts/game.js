@@ -41,7 +41,7 @@ function update() {
       window.location.reload(); ;   
   }
   if(Score2 == 7){    
-    if(alert("Player 2 win")){}
+    if(alert("Player 1 win")){}
       else    
       window.location.reload(); 
   }
