@@ -9,6 +9,15 @@ var colorBall = '#ff6700';
 var Score = 0;
 var Score2 = 0
 
+function hideImage(){
+  //  5000 = 5 seconds
+  setTimeout( 5000, doHide ) ;
+}
+
+function doHide(){
+    document.getElementById( "imgToHide" ).style.display = "none" ;
+}
+
 function Ball (canvas){
   initialPosX = 600;
   initialPosY = 800;
@@ -31,15 +40,15 @@ Ball.prototype.move = function(){
   if (ball.x + ball.vx > canvas.width - radius || ball.x + ball.vx < radius) {
     ball.vx *= -1;
   }
+  
 }
 
 Ball.prototype.collision = function (){
     if (this.x + this.radius >= player.x && 
       this.y + this.radius >= player.y + player.height && 
       this.x - this.radius <= player.x + player.width){
-        this.vx *= -1
-      // this.vx = -9
-      // this.vy = -6   
+        this.vx *= -1;
+        this.vy *=-1
     }
     if (
       this.x - this.radius <= player.x + player.width  &&
@@ -49,15 +58,19 @@ Ball.prototype.collision = function (){
        ){
       this.vy *= +1.2
       this.vx *= -1
-      // this.vx = 9
-      // this.vy = -6
     } 
+
+    // if (      
+    //   this.y + this.radius >= player.y + player.height - 10 &&
+    //   this.y + this.radius <= player.y + player.height
+    // ) {
+
+    // }
     if (this.x + this.radius >= player2.x && 
       this.y + this.radius >= player2.y + player2.height && 
       this.x - this.radius <= player2.x + player2.width){
         this.vx *= -1
-      // this.vx = -9
-      // this.vy = -6   
+        this.vy *=-1
     }
     if (
       this.x - this.radius <= player2.x + player2.width  &&
@@ -67,8 +80,6 @@ Ball.prototype.collision = function (){
        ){
       this.vy *= +1.2
       this.vx *= -1
-      // this.vx = 9
-      // this.vy = -6
     } 
     if (
       this.x - this.radius <= 130  &&
@@ -83,11 +94,9 @@ Ball.prototype.collision = function (){
     if (
       this.x - this.radius >= 0  &&
       this.x - this.radius <= 10  &&
-      //this.x-this.radius >= player.x && 
       this.y  <= 260 &&
       this.y  >= 130
       ){
-      //this.vy = 2
       this.vx = 1.2
     } 
     if (
@@ -97,7 +106,6 @@ Ball.prototype.collision = function (){
       this.y  <= 260 &&
       this.y  >= 130
       ){
-      //this.vy = 2
       this.vx = 1.2
     } 
 }
@@ -113,16 +121,20 @@ function score (obj){
 if (obj!= undefined)
   if (
     obj.vy >= 0 &&
-    //this.y + this.radius <= 255 && 
-    //this.y + this.radius >= 265 && 
     obj.y <= 260 &&
     obj.y >= 240 &&
     obj.x + obj.radius <= 125 &&
     obj.x - obj.radius >= 0
     ){
       Score++;
-      if (Score === 1) {
+      if (Score===0){
+
+      }
+      if (Score === 2) {
         var audio = new Audio('./audio/defense.mp3');
+        audio.play();
+      } else if (Score === 3) {
+        var audio = new Audio('./audio/triple.mp3');
         audio.play();
       } else
       var audio = new Audio('./audio/Swish.mp3');
@@ -140,16 +152,19 @@ if (obj!= undefined)
 function score2 (obj){
   if (
     obj.vy >= 0 &&
-    //this.y + this.radius <= 255 && 
-    //this.y + this.radius >= 265 && 
     obj.y <= 260 &&
     obj.y >= 240 &&
     obj.x + obj.radius <= canvas.width &&
     obj.x - obj.radius >= canvas.width - 125
     ){
       Score2++;
-      if (Score2 === 1) {
+      if (Score2 ===1) {
+        hideImage()
+      } else if (Score2 === 2) {
         var audio = new Audio('./audio/chof.mp3');
+        audio.play();
+      } else if (Score2 === 4) {
+        var audio = new Audio('./audio/cojo.mp3');
         audio.play();
       } else
       var audio = new Audio('./audio/Swish.mp3');
@@ -163,3 +178,4 @@ function score2 (obj){
       ctx.fillText("Score: "+Score2, 8, 20);
   }
 }
+

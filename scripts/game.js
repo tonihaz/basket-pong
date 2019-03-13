@@ -11,11 +11,8 @@ function Game(canvadId) {
   var audio = new Audio('./audio/NBAsound.mp3');
   audio.play();
 
-
-
   setInterval(update, 20);
   
-  //this.reset();
 }
 function update() {
   ctx.clearRect(0,0, canvas.width, canvas.height);
