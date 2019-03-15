@@ -26,6 +26,13 @@ function update() {
     player2.move(e);
     player.move(e);
   }.bind(this)
+  document.onkeyup = function(e) {
+    player.isMovingRight = false;
+    player.isMovingLeft = false;
+    player2.isMovingRight = false;
+    player2.isMovingLeft = false;
+    //this.startMoveTop = false;
+  }.bind(this)
   player.jump ();
   player2.jump ();
   player.draw();

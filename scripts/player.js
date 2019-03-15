@@ -7,7 +7,8 @@ function Player(canvas) {
   this.vy = 1;
   this.width = 50;
   this.height = -160;
-
+  this.isMovingLeft = false;
+  this.isMovingRight = false;
 };
 
 function Player2(canvas) {
@@ -17,49 +18,56 @@ function Player2(canvas) {
   this.vy = 1;
   this.width = 50;
   this.height = -160;
-
+  this.isMovingLeft = false;
+  this.isMovingRight = false;
 };
-
     
 Player.prototype.move = function(e){
-        switch(e.keyCode){
-          case 39:
-            if(this.x<1000-80){
-              this.x = this.x+20;}   
-            break
-          case 37:
-            if (this.x>0){
-              this.x = this.x-20;
-            }
-            break
-          case 38:
-          if (this.y == 600) {
-            this.y -= 5;
-            this.vy -= 13;
-           }
-            break
-          }
+  if(this.isMovingRight === true && this.x + this.width <= canvas.width) this.x+= 20;
+  if(this.isMovingLeft === true && this.x  > 0)this.x -= 20;
+  switch(e.keyCode){
+    case 39:
+      this.isMovingRight = true;
+      this.isMovingLeft = false;  
+      console.log("1R")
+      break
+    case 37:
+    this.isMovingRight = false;
+    this.isMovingLeft = true;  
+    console.log("1L")
+      break
+    case 38:
+    if (this.y == 600) {
+      this.y -= 5;
+      this.vy -= 13;
+      }
+      break
+    }
 }
 
 Player2.prototype.move = function(e){
-      switch(e.keyCode){
-        case 68:
-          if(this.x<1000-50){
-            this.x = this.x+20;}   
-          break
-        case 65:
-          if (this.x>0){
-            this.x = this.x-20;
-          }
-          break
-        case 87:
-        if (this.y == 600) {
-          this.y -= 5;
-          this.vy -= 13;
-         }
-          break
-        }
+  if(this.isMovingRight === true && this.x + this.width <= canvas.width)this.x+= 20;
+  if(this.isMovingLeft === true && this.x  > 0)this.x -= 20;
+  switch(e.keyCode){
+    case 68:
+      player2.isMovingRight = true;
+      this.isMovingLeft = false;  
+      console.log("2R")
+      break
+    case 65:
+    this.isMovingRight = false;
+    this.isMovingLeft = true;  
+    console.log("2I")
+      break
+    case 87:
+    if (this.y == 600) {
+      this.y -= 5;
+      this.vy -= 13;
+      }
+      break
+    }
 }
+
 
 Player.prototype.jump = function() {
   var gravity = 0.4;
