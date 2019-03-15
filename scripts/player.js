@@ -23,18 +23,16 @@ function Player2(canvas) {
 };
     
 Player.prototype.move = function(e){
-  if(this.isMovingRight === true && this.x + this.width <= canvas.width) this.x+= 20;
+  if(this.isMovingRight === true && this.x + this.width+50 <= canvas.width) this.x+= 20;
   if(this.isMovingLeft === true && this.x  > 0)this.x -= 20;
   switch(e.keyCode){
     case 39:
       this.isMovingRight = true;
       this.isMovingLeft = false;  
-      console.log("1R")
       break
     case 37:
     this.isMovingRight = false;
     this.isMovingLeft = true;  
-    console.log("1L")
       break
     case 38:
     if (this.y == 600) {
@@ -46,18 +44,17 @@ Player.prototype.move = function(e){
 }
 
 Player2.prototype.move = function(e){
-  if(this.isMovingRight === true && this.x + this.width <= canvas.width)this.x+= 20;
-  if(this.isMovingLeft === true && this.x  > 0)this.x -= 20;
+  if(
+    this.isMovingRight === true && this.x + this.width <= canvas.width)this.x+= 20;
+  if(this.isMovingLeft === true && this.x -20 > 0)this.x -= 20;
   switch(e.keyCode){
     case 68:
       player2.isMovingRight = true;
       this.isMovingLeft = false;  
-      console.log("2R")
       break
     case 65:
     this.isMovingRight = false;
     this.isMovingLeft = true;  
-    console.log("2I")
       break
     case 87:
     if (this.y == 600) {
