@@ -42,12 +42,14 @@ function update() {
   document.getElementById('score').innerHTML =  Score + " points";
   document.getElementById('score2').innerHTML =  Score2 + " points";
   if(Score == 7){
+    Score = 0
     if(alert("Player 2 win"))
     {}
       else    
       window.location.reload(); ;   
   }
   if(Score2 == 7){    
+    Score2 = 0
     if(alert("Player 1 win")){}
       else    
       window.location.reload(); 

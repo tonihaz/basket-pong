@@ -145,7 +145,7 @@ function score2 (obj){
       if (Score2 === 2) {
         var audio = new Audio('./audio/chof.mp3');
         audio.play();
-      } else if (Score2 === 4) {
+      } else if (Score2 === 3) {
         var audio = new Audio('./audio/cojo.mp3');
         audio.play();
       } else
